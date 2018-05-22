@@ -1,0 +1,25 @@
+version: "3"
+services:
+  web:
+     image: nginx:alpine
+     restart: always
+     links:
+       - api
+     ports:
+       - "8080:80"
+     volumes:
+         - "./nginx.conf:/etc/nginx/conf.d/default.conf"
+  api:
+    build: ../
+    links:
+     - redis
+    restart: always
+    environment:
+     - REDIS_URL=redis://api-redis:6379/0
+    depends_on:
+      - redis
+  redis:
+    container_name: api-redis
+    image: redis
+    restart: always
+
