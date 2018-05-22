@@ -23,8 +23,9 @@ jobs:
       - docker build --rm --tag "$DOCKER_IMAGE":"$TRAVIS_COMMIT" .
       - docker build --rm --tag "$DOCKER_IMAGE":latest .
       - docker images
-      - docker run --rm "$DOCKER_IMAGE":"$TRAVIS_COMMIT" yarn run test
-      - docker run --rm --detach --publish 127.0.0.1:5000:5000 "$DOCKER_IMAGE":"$TRAVIS_COMMIT"
+      - docker network create app
+      - docker run --name redis --rm --detach -p 6379:6379 --network app redis
+      - docker run --name flask-api --rm --detach -p 5000:5000 --network app -e "REDIS_URL=redis://redis:6379/0" "$DOCKER_IMAGE":"$TRAVIS_COMMIT"
       - docker ps
       - sleep 20 
       - curl -I http://127.0.0.1:5000/api/kubernetes
