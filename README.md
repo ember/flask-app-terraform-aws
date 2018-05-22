@@ -1,7 +1,7 @@
 # flask-api with Terraform
 
 ## Goal
-The goal is to setup a PoC with simple API rest writen in Flask and deploy the infraestructure using Terraform and Docker using immutable deployments.
+The goal is to setup a PoC with simple API rest writen in Flask and deploy the infraestructure using Terraform, Docker and using immutable deployments.
 
 ## How it works
 ### The application
@@ -77,7 +77,7 @@ make publish-docker APP_VERSION=2
 ```
 
 ## Deploy the infrastructure
-This will use Terraform to deploy the initial infraesctruture. Terraform will set the VPC, Public subnets, Instances in eu-west-2.
+This will use Terragrunt/Terraform to deploy the initial infraesctruture. Terraform will set the VPC, Public subnets, Instances in eu-west-2.
 
 ### Run Terraform
 To run the Terraform you will need to have the env vars for your credentials.
