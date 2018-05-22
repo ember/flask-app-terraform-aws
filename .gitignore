@@ -1,0 +1,10 @@
+# Ignore pyenv
+bin/
+include/
+pip-selfcheck.json
+lib
+.Python
+
+# Ignore terraform
+terraform/.terraform
+terraform/terraform.tfstate*
