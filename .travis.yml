@@ -26,8 +26,8 @@ jobs:
       - docker run --rm "$DOCKER_IMAGE":"$TRAVIS_COMMIT" yarn run test
       - docker run --rm --detach --publish 127.0.0.1:5000:5000 "$DOCKER_IMAGE":"$TRAVIS_COMMIT"
       - docker ps
-      - sleep 5 
-      - curl -I http://127.0.0.1:5000/kubernetes
+      - sleep 10 
+      - curl -I http://127.0.0.1:5000/api/kubernetes
       - docker push "$DOCKER_IMAGE":"$TRAVIS_COMMIT"  
       - docker push "$DOCKER_IMAGE":latest  
     - stage: deploy
