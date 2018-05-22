@@ -42,7 +42,7 @@ All the complexity is masked with a Makefile.
 ## Run all the stack
 To create all the containers, ift and run the ansible you first need to setup the environment variables
 ```bash
-export DOCKER_USER=someuser
+export DOCKER_USERNAME=someuser
 export DOCKER_PASSWORD=somepassword
 export AWS_ACCESS_KEY_ID=aws_key
 export AWS_SECRET_ACCESS_KEY=aws_secret
@@ -66,7 +66,7 @@ make build-docker
 
 To build and publish the image will require that you have the env vars for your registry set up.
 ```bash
-export DOCKER_USER=someuser
+export DOCKER_USERNAME=someuser
 export DOCKER_PASSWORD=somepassword
 make publish-docker
 ```
