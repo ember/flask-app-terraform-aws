@@ -1,4 +1,4 @@
-# flask-api with Terraform
+# flask-api with Terraform [![Build Status](https://travis-ci.org/ember/flask-app-terraform-aws.svg?branch=master)](https://travis-ci.org/ember/flask-app-terraform-aws)
 
 ## Goal
 The goal is to setup a PoC with simple API rest writen in Flask and deploy the infraestructure using Terraform, Docker and using immutable deployments.
