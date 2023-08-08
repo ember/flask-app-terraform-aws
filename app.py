@@ -79,6 +79,7 @@ class Kubernetes(Resource):
 
 class KubernetesPop(Resource):
     def get(self):
+        q = query_all()
         return jsonify(paginate(query_sort("stargazers_count"),
                page=request.args.get('page', 1),
                per_page=request.args.get('per_page', 10)))
